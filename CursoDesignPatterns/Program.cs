@@ -12,4 +12,16 @@ calculador.RealizaCalculo(orcamento, icms);
 calculador.RealizaCalculo(orcamento, iss);
 calculador.RealizaCalculo(orcamento, iccc);
 
+Investimento conservador = new Conservador();
+Investimento moderado = new Moderado();
+Investimento arrojado = new Moderado();
+
+ContaBancaria conta = new ContaBancaria(500);
+
+RealizadorDeInvestimentos realizador = new RealizadorDeInvestimentos();
+
+realizador.RealizaCalculo(conta, conservador);
+realizador.RealizaCalculo(conta, moderado);
+realizador.RealizaCalculo(conta, arrojado);
+
 Console.ReadKey();
