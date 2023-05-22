@@ -8,10 +8,12 @@ namespace CursoDesignPatterns;
 
 public class ContaBancaria
 {
+    public string NomeTitular { get; private set; }
     public double Saldo { get; private set; }
 
-    public ContaBancaria(double saldo)
+    public ContaBancaria(string nome, double saldo)
     {
+        NomeTitular = nome;
         Saldo = saldo;
     }
 

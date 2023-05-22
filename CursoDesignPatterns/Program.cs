@@ -16,7 +16,7 @@ Investimento conservador = new Conservador();
 Investimento moderado = new Moderado();
 Investimento arrojado = new Moderado();
 
-ContaBancaria conta = new ContaBancaria(500);
+ContaBancaria conta = new ContaBancaria("Ana", 500);
 
 RealizadorDeInvestimentos realizador = new RealizadorDeInvestimentos();
 
@@ -35,5 +35,20 @@ orcamento.AdicionaItem(new Item("Microondas", 250));
 
 double desconto = calculadorDeDeDescontos.Calcula(orcamento);
 Console.WriteLine($"Desconto: {desconto}");
+
+CorrenteDeFormato formatador = new CorrenteDeFormato();
+
+Requisicao req1 = new Requisicao(Formato.XML);
+Requisicao req2 = new Requisicao(Formato.CSV);
+Requisicao req3 = new Requisicao(Formato.PORCENTO);
+
+string formato1 = formatador.Formata(req1, conta);
+Console.WriteLine(formato1);
+
+string formato2 = formatador.Formata(req2, conta);
+Console.WriteLine(formato2);
+
+string formato3 = formatador.Formata(req3, conta);
+Console.WriteLine(formato3);
 
 Console.ReadKey();
