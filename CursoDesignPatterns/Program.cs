@@ -31,7 +31,7 @@ orcamento.AdicionaItem(new Item("Lapis", 250));
 orcamento.AdicionaItem(new Item("Geladeira", 250));
 orcamento.AdicionaItem(new Item("Fogão", 250));
 orcamento.AdicionaItem(new Item("Microondas", 250));
-orcamento.AdicionaItem(new Item("Xbox", 250));
+//orcamento.AdicionaItem(new Item("Xbox", 250));
 
 double desconto = calculadorDeDeDescontos.Calcula(orcamento);
 Console.WriteLine($"Desconto: {desconto}");
