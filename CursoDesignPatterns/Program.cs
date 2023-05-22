@@ -24,4 +24,16 @@ realizador.RealizaCalculo(conta, conservador);
 realizador.RealizaCalculo(conta, moderado);
 realizador.RealizaCalculo(conta, arrojado);
 
+CalculadorDeDescontos calculadorDeDeDescontos = new CalculadorDeDescontos();
+
+orcamento.AdicionaItem(new Item("Caneta", 250));
+orcamento.AdicionaItem(new Item("Lapis", 250));
+orcamento.AdicionaItem(new Item("Geladeira", 250));
+orcamento.AdicionaItem(new Item("Fogão", 250));
+orcamento.AdicionaItem(new Item("Microondas", 250));
+orcamento.AdicionaItem(new Item("Xbox", 250));
+
+double desconto = calculadorDeDeDescontos.Calcula(orcamento);
+Console.WriteLine($"Desconto: {desconto}");
+
 Console.ReadKey();
