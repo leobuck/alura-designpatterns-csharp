@@ -8,7 +8,12 @@ namespace CursoDesignPatterns;
 
 public class FormatadorPorXML : Formatador
 {
-    public Formatador Proximo { get; set; }
+    public Formatador Proximo { get; private set; }
+
+    public FormatadorPorXML(Formatador proximo)
+    {
+        Proximo = proximo;
+    }
 
     public string Formata(Requisicao requisicao, ContaBancaria conta)
     {

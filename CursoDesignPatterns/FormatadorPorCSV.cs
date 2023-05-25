@@ -8,7 +8,12 @@ namespace CursoDesignPatterns;
 
 public class FormatadorPorCSV : Formatador
 {
-    public Formatador Proximo { get; set; }
+    public Formatador Proximo { get; private set; }
+
+    public FormatadorPorCSV(Formatador proximo)
+    {
+        Proximo = proximo;
+    }
 
     public string Formata(Requisicao requisicao, ContaBancaria conta)
     {

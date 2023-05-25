@@ -10,12 +10,13 @@ public class CorrenteDeFormato
 {
     public string Formata(Requisicao requisicao, ContaBancaria conta)
     {
-        Formatador f1 = new FormatadorPorXML();
-        Formatador f2 = new FormatadorPorCSV();
-        Formatador f3 = new FormatadorPorPorcento();
+        Formatador f1;
+        Formatador f2;
+        Formatador f3;
 
-        f1.Proximo = f2;
-        f2.Proximo = f3;
+        f3 = new FormatadorPorPorcento(null);
+        f2 = new FormatadorPorCSV(f3);
+        f1 = new FormatadorPorXML(f2);
 
         return f1.Formata(requisicao, conta);
     }

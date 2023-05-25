@@ -9,5 +9,4 @@ namespace CursoDesignPatterns;
 public interface Formatador
 {
     string Formata(Requisicao requisicao, ContaBancaria conta);
-    Formatador Proximo { get; set; }
 }

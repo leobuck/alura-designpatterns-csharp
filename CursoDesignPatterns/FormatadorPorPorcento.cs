@@ -8,7 +8,12 @@ namespace CursoDesignPatterns;
 
 public class FormatadorPorPorcento : Formatador
 {
-    public Formatador Proximo { get; set; }
+    public Formatador Proximo { get; private set; }
+
+    public FormatadorPorPorcento(Formatador proximo)
+    {
+        Proximo = proximo;
+    }
 
     public string Formata(Requisicao requisicao, ContaBancaria conta)
     {
