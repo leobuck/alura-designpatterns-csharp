@@ -51,4 +51,10 @@ Console.WriteLine(formato2);
 string formato3 = formatador.Formata(req3, conta);
 Console.WriteLine(formato3);
 
+Imposto icpp = new ICPP();
+calculador.RealizaCalculo(orcamento, icpp);
+
+Imposto ikcv = new IKCV();
+calculador.RealizaCalculo(orcamento, ikcv);
+
 Console.ReadKey();
