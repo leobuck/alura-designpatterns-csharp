@@ -21,7 +21,13 @@ public class FormatadorPorPorcento : Formatador
         {
             return $"{conta.NomeTitular}%{conta.Saldo}";
         }
-
-        return Proximo.Formata(requisicao, conta);
+        else if (Proximo != null)
+        {
+            return Proximo.Formata(requisicao, conta);
+        }
+        else
+        {
+            throw new Exception("Formato de resposta não encontrado.");
+        }
     }
 }
