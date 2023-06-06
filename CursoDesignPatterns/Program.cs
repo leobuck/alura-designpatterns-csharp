@@ -57,4 +57,7 @@ calculador.RealizaCalculo(orcamento, icpp);
 Imposto ikcv = new IKCV();
 calculador.RealizaCalculo(orcamento, ikcv);
 
+Imposto ihit = new IHIT();
+calculador.RealizaCalculo(orcamento, ihit);
+
 Console.ReadKey();
