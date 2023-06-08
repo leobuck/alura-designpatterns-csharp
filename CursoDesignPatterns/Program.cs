@@ -60,4 +60,19 @@ calculador.RealizaCalculo(orcamento, ikcv);
 Imposto ihit = new IHIT();
 calculador.RealizaCalculo(orcamento, ihit);
 
+Banco banco = new Banco("NewBank", "(19) 3455-0101", "contato@newbank.com", "Rua dos Bancos, 123, Centro");
+ContaBancaria conta1 = new ContaBancaria("Maria", "001", "000001", 1000);
+ContaBancaria conta2 = new ContaBancaria("João", "001", "000020", 500);
+ContaBancaria conta3 = new ContaBancaria("Luis", "002", "000144", 1200);
+List<ContaBancaria> contas = new List<ContaBancaria>();
+contas.Add(conta1);
+contas.Add(conta2);
+contas.Add(conta3);
+
+RelatorioSimples relatSimples = new RelatorioSimples();
+relatSimples.Imprimir(banco, contas);
+
+RelatorioComplexo relComplexo = new RelatorioComplexo();
+relComplexo.Imprimir(banco, contas);
+
 Console.ReadKey();
