@@ -1,6 +1,6 @@
 ﻿using CursoDesignPatterns;
 
-Imposto iss = new ISS();
+Imposto iss = new ISS(new ICMS());
 Imposto icms = new ICMS();
 Imposto iccc = new ICCC();
 
