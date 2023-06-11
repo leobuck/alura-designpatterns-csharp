@@ -75,4 +75,7 @@ relatSimples.Imprimir(banco, contas);
 RelatorioComplexo relComplexo = new RelatorioComplexo();
 relComplexo.Imprimir(banco, contas);
 
+Imposto ima = new IMA(new ISS());
+calculador.RealizaCalculo(orcamento, ima);
+
 Console.ReadKey();
