@@ -8,6 +8,14 @@ namespace CursoDesignPatterns;
 
 public class IKCV : TemplateDeImpostoCondicional
 {
+    public IKCV()
+    {
+    }
+
+    public IKCV(Imposto outroImposto) : base(outroImposto)
+    {
+    }
+
     public override bool DeveUsarMaximaTaxacao(Orcamento orcamento)
     {
         return orcamento.Valor >= 500 && TemItemMaiorQue100ReaisNo(orcamento);

@@ -8,6 +8,14 @@ namespace CursoDesignPatterns;
 
 public class IHIT : TemplateDeImpostoCondicional
 {
+    public IHIT()
+    {
+    }
+
+    public IHIT(Imposto outroImposto) : base(outroImposto)
+    {
+    }
+
     public override bool DeveUsarMaximaTaxacao(Orcamento orcamento)
     {
         return orcamento.Itens.GroupBy(i => i.Nome).Any(i => i.Count() >= 2);
