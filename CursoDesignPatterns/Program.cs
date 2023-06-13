@@ -61,9 +61,9 @@ Imposto ihit = new IHIT();
 calculador.RealizaCalculo(orcamento, ihit);
 
 Banco banco = new Banco("NewBank", "(19) 3455-0101", "contato@newbank.com", "Rua dos Bancos, 123, Centro");
-ContaBancaria conta1 = new ContaBancaria("Maria", "001", "000001", 1000);
-ContaBancaria conta2 = new ContaBancaria("João", "001", "000020", 500);
-ContaBancaria conta3 = new ContaBancaria("Luis", "002", "000144", 1200);
+ContaBancaria conta1 = new ContaBancaria("Maria", "001", "000001", 500001, DateTime.Now);
+ContaBancaria conta2 = new ContaBancaria("João", "001", "000020", 500, DateTime.Now);
+ContaBancaria conta3 = new ContaBancaria("Luis", "002", "000144", 99, DateTime.Now);
 List<ContaBancaria> contas = new List<ContaBancaria>();
 contas.Add(conta1);
 contas.Add(conta2);
@@ -77,5 +77,12 @@ relComplexo.Imprimir(banco, contas);
 
 Imposto ima = new IMA(new ISS());
 calculador.RealizaCalculo(orcamento, ima);
+
+FiltroMenorQue100Reais filtroMenorQue100Reais = new FiltroMenorQue100Reais(new FiltroMaiorQue500MilReais(new FiltroMesmoMes()));
+var fraudulentas = filtroMenorQue100Reais.Filtra(contas);
+foreach (var fraudulenta in fraudulentas)
+{
+    Console.WriteLine($"{fraudulenta.NomeTitular} - {fraudulenta.Agencia} {fraudulenta.NumeroConta} - R$ {fraudulenta.Saldo} {fraudulenta.Abertura}");
+}
 
 Console.ReadKey();

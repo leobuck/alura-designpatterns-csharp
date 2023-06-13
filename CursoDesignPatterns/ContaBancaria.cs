@@ -12,6 +12,7 @@ public class ContaBancaria
     public string Agencia { get; private set; }
     public string NumeroConta { get; private set; }
     public double Saldo { get; private set; }
+    public DateTime Abertura { get; private set; }
 
     public ContaBancaria(string nome, double saldo)
     {
@@ -23,12 +24,14 @@ public class ContaBancaria
         string nomeTitular,
         string agencia,
         string numeroConta,
-        double saldo)
+        double saldo,
+        DateTime abertura)
     {
         NomeTitular = nomeTitular;
         Agencia = agencia;
         NumeroConta = numeroConta;
         Saldo = saldo;
+        Abertura = abertura;
     }
 
     public void Deposita(double valor)
