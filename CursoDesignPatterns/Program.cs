@@ -99,4 +99,16 @@ Console.WriteLine(reforma.Valor);
 
 reforma.Finaliza();
 
+ContaBancaria conta4 = new ContaBancaria("Leonardo", 10);
+Console.WriteLine(conta4.Saldo);
+
+conta4.Deposito(5);
+Console.WriteLine(conta4.Saldo);
+
+conta4.Saque(20);
+Console.WriteLine(conta4.Saldo);
+
+conta4.Deposito(100);
+Console.WriteLine(conta4.Saldo);
+
 Console.ReadKey();
