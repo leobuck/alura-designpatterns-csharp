@@ -16,6 +16,8 @@ public class NotaFiscalBuilder
     private double Impostos;
     private IList<ItemDaNota> TodosItens = new List<ItemDaNota>();
 
+    private IList<AcaoAposGerarNota> TodasAcoesASeremExecutadas = new List<AcaoAposGerarNota>();
+
     public NotaFiscalBuilder()
     {
         Data = DateTime.Now;
@@ -55,6 +57,18 @@ public class NotaFiscalBuilder
 
     public NotaFiscal Constroi()
     {
-        return new NotaFiscal(RazaoSocial, Cnpj, Data, ValorTotal, Impostos, TodosItens, Observacoes);
+        NotaFiscal nf = new NotaFiscal(RazaoSocial, Cnpj, Data, ValorTotal, Impostos, TodosItens, Observacoes);
+
+        foreach (AcaoAposGerarNota acao in TodasAcoesASeremExecutadas) 
+        {
+            acao.Executar(nf);
+        }
+
+        return nf;
+    }
+
+    public void AdicionarAcao(AcaoAposGerarNota novaAcao)
+    {
+        TodasAcoesASeremExecutadas.Add(novaAcao);
     }
 }

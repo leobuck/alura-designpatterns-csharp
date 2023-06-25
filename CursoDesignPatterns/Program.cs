@@ -121,13 +121,18 @@ ItemDaNota item2 = new ItemDaNotaBuilder()
     .ComValor(200.0)
     .Constroi();
 
-NotaFiscal nf = new NotaFiscalBuilder()
+NotaFiscalBuilder criador = new NotaFiscalBuilder()
     .ParaEmpresa("Caelum Ensino e Inovação")
     .ComCnpj("23.456.789/0001-12")
     .ComObservacoes("Uma observação qualquer.")
     .Com(item1)
-    .Com(item2)
-    .Constroi();
+    .Com(item2);
+
+criador.AdicionarAcao(new EnviadorDeEmail());
+criador.AdicionarAcao(new NotaFiscalDao());
+criador.AdicionarAcao(new EnviadorDeSms());
+
+NotaFiscal nf = criador.Constroi();
 
 Console.WriteLine(nf.DataDeEmissao);
 Console.WriteLine(nf.ValorBruto);
