@@ -125,8 +125,8 @@ NotaFiscal nf = new NotaFiscalBuilder()
     .ParaEmpresa("Caelum Ensino e Inovação")
     .ComCnpj("23.456.789/0001-12")
     .ComObservacoes("Uma observação qualquer.")
-    .ComItem(item1)
-    .ComItem(item2)
+    .Com(item1)
+    .Com(item2)
     .Constroi();
 
 Console.WriteLine(nf.DataDeEmissao);

@@ -45,7 +45,7 @@ public class NotaFiscalBuilder
         return this;
     }
 
-    public NotaFiscalBuilder ComItem(ItemDaNota item)
+    public NotaFiscalBuilder Com(ItemDaNota item)
     {
         TodosItens.Add(item);
         ValorTotal += item.Valor;
