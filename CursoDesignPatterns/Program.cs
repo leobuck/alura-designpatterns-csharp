@@ -111,16 +111,24 @@ Console.WriteLine(conta4.Saldo);
 conta4.Deposito(100);
 Console.WriteLine(conta4.Saldo);
 
-NotaFiscalBuilder criador = new NotaFiscalBuilder();
-criador
+ItemDaNota item1 = new ItemDaNotaBuilder()
+    .ComNome("Item 1")
+    .ComValor(100.0)
+    .Constroi();
+
+ItemDaNota item2 = new ItemDaNotaBuilder()
+    .ComNome("Item 2")
+    .ComValor(200.0)
+    .Constroi();
+
+NotaFiscal nf = new NotaFiscalBuilder()
     .ParaEmpresa("Caelum Ensino e Inovação")
     .ComCnpj("23.456.789/0001-12")
     .NaDataAtual()
     .ComObservacoes("Uma observação qualquer.")
-    .ComItem(new ItemDaNota("Item 1", 100.0))
-    .ComItem(new ItemDaNota("Item 2", 200.0));
-
-NotaFiscal nf = criador.Constroi();
+    .ComItem(item1)
+    .ComItem(item2)
+    .Constroi();
 
 Console.WriteLine(nf.ValorBruto);
 Console.WriteLine(nf.Impostos);
