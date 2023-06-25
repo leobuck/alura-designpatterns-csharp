@@ -124,12 +124,12 @@ ItemDaNota item2 = new ItemDaNotaBuilder()
 NotaFiscal nf = new NotaFiscalBuilder()
     .ParaEmpresa("Caelum Ensino e Inovação")
     .ComCnpj("23.456.789/0001-12")
-    .NaDataAtual()
     .ComObservacoes("Uma observação qualquer.")
     .ComItem(item1)
     .ComItem(item2)
     .Constroi();
 
+Console.WriteLine(nf.DataDeEmissao);
 Console.WriteLine(nf.ValorBruto);
 Console.WriteLine(nf.Impostos);
 

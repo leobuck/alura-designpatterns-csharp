@@ -16,6 +16,11 @@ public class NotaFiscalBuilder
     private double Impostos;
     private IList<ItemDaNota> TodosItens = new List<ItemDaNota>();
 
+    public NotaFiscalBuilder()
+    {
+        Data = DateTime.Now;
+    }
+
     public NotaFiscalBuilder ParaEmpresa(string razaoSocial)
     {
         RazaoSocial = razaoSocial;
@@ -34,9 +39,9 @@ public class NotaFiscalBuilder
         return this;
     }
 
-    public NotaFiscalBuilder NaDataAtual()
+    public NotaFiscalBuilder NaData(DateTime data)
     {
-        Data = DateTime.Now;
+        Data = data;
         return this;
     }
 
