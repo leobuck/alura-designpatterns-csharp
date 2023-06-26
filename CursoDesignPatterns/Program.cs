@@ -121,17 +121,18 @@ ItemDaNota item2 = new ItemDaNotaBuilder()
     .ComValor(200.0)
     .Constroi();
 
-NotaFiscalBuilder criador = new NotaFiscalBuilder()
+IList<AcaoAposGerarNota> acoes = new List<AcaoAposGerarNota>();
+acoes.Add(new EnviadorDeEmail());
+acoes.Add(new NotaFiscalDao());
+acoes.Add(new EnviadorDeSms());
+acoes.Add(new Multiplicador(10));
+
+NotaFiscalBuilder criador = new NotaFiscalBuilder(acoes)
     .ParaEmpresa("Caelum Ensino e Inovação")
     .ComCnpj("23.456.789/0001-12")
     .ComObservacoes("Uma observação qualquer.")
     .Com(item1)
     .Com(item2);
-
-criador.AdicionarAcao(new EnviadorDeEmail());
-criador.AdicionarAcao(new NotaFiscalDao());
-criador.AdicionarAcao(new EnviadorDeSms());
-criador.AdicionarAcao(new Multiplicador(10));
 
 NotaFiscal nf = criador.Constroi();
 

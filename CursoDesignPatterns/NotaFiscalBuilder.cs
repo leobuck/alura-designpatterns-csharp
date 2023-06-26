@@ -18,9 +18,10 @@ public class NotaFiscalBuilder
 
     private IList<AcaoAposGerarNota> TodasAcoesASeremExecutadas = new List<AcaoAposGerarNota>();
 
-    public NotaFiscalBuilder()
+    public NotaFiscalBuilder(IList<AcaoAposGerarNota> todasAcoesASeremExecutadas)
     {
         Data = DateTime.Now;
+        TodasAcoesASeremExecutadas = todasAcoesASeremExecutadas;
     }
 
     public NotaFiscalBuilder ParaEmpresa(string razaoSocial)
@@ -65,10 +66,5 @@ public class NotaFiscalBuilder
         }
 
         return nf;
-    }
-
-    public void AdicionarAcao(AcaoAposGerarNota novaAcao)
-    {
-        TodasAcoesASeremExecutadas.Add(novaAcao);
     }
 }
