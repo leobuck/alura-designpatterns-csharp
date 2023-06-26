@@ -131,6 +131,7 @@ NotaFiscalBuilder criador = new NotaFiscalBuilder()
 criador.AdicionarAcao(new EnviadorDeEmail());
 criador.AdicionarAcao(new NotaFiscalDao());
 criador.AdicionarAcao(new EnviadorDeSms());
+criador.AdicionarAcao(new Multiplicador(10));
 
 NotaFiscal nf = criador.Constroi();
 
